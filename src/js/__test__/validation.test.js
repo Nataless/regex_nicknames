@@ -5,21 +5,21 @@ test('corrected username', () => {
   expect(received).toBeTruthy();
 });
 
-test('Заглавные буквы', () => {
+test('заглавные буквы', () => {
   const received = Validator.validateUsername('ADMIN');
   expect(received).toBeTruthy();
 });
 
-test('имя включает кириллицу', () => {
+test('имя включает символы на кириллице', () => {
   const received = Validator.validateUsername('яADMIN');
   expect(received).toBeFalsy();
 });
-test('Меньше 4 цифр подряд ', () => {
+test('имя содержит не более 3-х цифр подряд ', () => {
   const received = Validator.validateUsername('ad984min');
   expect(received).toBeTruthy();
 });
 
-test('имя заканчивается цифрами', () => {
+test('имя заканчивается цифрой', () => {
   const received = Validator.validateUsername('admiN__11');
   expect(received).toBeFalsy();
 });
@@ -44,7 +44,7 @@ test('имя заканчивается подчеркиванием', () => {
   expect(received).toBeFalsy();
 });
 
-test('Больше трех цифр подряд', () => {
+test('имя содержит более трех цифр подряд', () => {
   const received = Validator.validateUsername('ad1984min');
   expect(received).toBeFalsy();
 });
